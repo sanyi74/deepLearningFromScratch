@@ -77,10 +77,10 @@ void testPrintArrayToBmp() {
 	memset(B, 0x00, 512 * 480);
 
 	for (size_t x = 0; x < 512; x++) {
-		for (size_t y = 0; y < 120; y++) R[(y * 512) + x] = x / 2;
-		for (size_t y = 120; y < 240; y++) G[(y * 512) + x] = x / 2;
-		for (size_t y = 240; y < 360; y++) B[(y * 512) + x] = x / 2;
-		for (size_t y = 360; y < 480; y++) R[(y * 512) + x] = G[(y * 512) + x] = B[(y * 512) + x] = x / 2;
+		for (size_t y = 0; y < 120; y++) R[(y * 512) + x] = (unsigned char)(x / 2);
+		for (size_t y = 120; y < 240; y++) G[(y * 512) + x] = (unsigned char)(x / 2);
+		for (size_t y = 240; y < 360; y++) B[(y * 512) + x] = (unsigned char)(x / 2);
+		for (size_t y = 360; y < 480; y++) R[(y * 512) + x] = G[(y * 512) + x] = B[(y * 512) + x] = (unsigned char)(x / 2);
 	}
 
 	printArrayToBmp(512, 480, R, G, B, "test.bmp");
@@ -92,7 +92,7 @@ int loadCsvFile(std::ifstream* file, unsigned int numberOfLines, double* &a, uns
 	std::cerr << "Loading file..." << std::endl;
 	try {
 		auto nLine = numberOfLines;
-		if (nLine == 0) nLine = std::count(std::istreambuf_iterator<char>(*file), std::istreambuf_iterator<char>(), '\n');
+		if (nLine == 0) nLine = (unsigned int)std::count(std::istreambuf_iterator<char>(*file), std::istreambuf_iterator<char>(), '\n');
 		std::cerr << "Number of lines: " << nLine << std::endl;
 		if (a == nullptr) a = new double[nLine * nDataA];
 		if (b == nullptr && nDataB > 0) b = new double[nLine * nDataB];

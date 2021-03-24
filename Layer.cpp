@@ -125,7 +125,7 @@ Layer* Layer::load(std::ifstream* input, bool hex) {
 	getLine(ss, item, ',');
 	name = item;
 	getLine(ss, item, ',');
-	width = paresInt(item);
+	width = (unsigned int)paresInt(item);
 	getLine(ss, item, ',');;
 	if (item == "linear") nonLinearity = LINEAR;
 	else if (item == "relu") nonLinearity = RELU;

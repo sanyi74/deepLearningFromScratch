@@ -23,8 +23,8 @@ int main(int argc, const char *argv[]) {
 	}
 	auto res = split(argv[1], ":");
 	auto fileName = res[0];
-	if (res.size() >= 2) indexA = paresInt(res[1]);
-	if (res.size() >= 3) indexB = paresInt(res[2]);
+	if (res.size() >= 2) indexA = (int)paresInt(res[1]);
+	if (res.size() >= 3) indexB = (int)paresInt(res[2]);
 	if (indexA < 0 || indexB < 0) problemAndExit("Invalid index parmeter!");
 
 	auto InputFile = new std::ifstream(fileName);

@@ -36,8 +36,8 @@ int main(int argc, const char *argv[]) {
 	sigaction(SIGINT, &sigactionHandler, NULL);
 #endif
 
-	int modelVersionId = paresInt(argv[3]);
-	int epoch = paresInt(argv[4]);
+	int modelVersionId = (int)paresInt(argv[3]);
+	int epoch = (int)paresInt(argv[4]);
 	if (modelVersionId < 0 || epoch <= 0) problemAndExit("Invalid parmeter!");
 
 	auto ModelFile = new std::ifstream(std::string(argv[2]) + "-" + std::to_string(modelVersionId) + ".txt");
@@ -59,8 +59,8 @@ int main(int argc, const char *argv[]) {
 	}
 	auto inputDescriptor = split(argv[1], ":");
 	auto InputFileName = inputDescriptor[0];
-	if (inputDescriptor.size() > 1) indexA = paresInt(inputDescriptor[1]);
-	if (inputDescriptor.size() > 2) indexB = paresInt(inputDescriptor[2]);
+	if (inputDescriptor.size() > 1) indexA = (int)paresInt(inputDescriptor[1]);
+	if (inputDescriptor.size() > 2) indexB = (int)paresInt(inputDescriptor[2]);
 	if (indexA < 0 || indexB < 0) problemAndExit("Invalid index parmeter!");
 	auto InputFile = new std::ifstream(InputFileName);
 	if (InputFile->fail()) problemAndExit("Input file does not exists!");
