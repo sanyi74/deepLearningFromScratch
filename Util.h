@@ -12,17 +12,15 @@
 #include <vector>
 
 #include <functional>
-#include <tuple>
 #include <iomanip>
+#include <tuple>
 
 #ifdef _WIN32
     #include <windows.h> 
 #else
-#include <cmath>
-    #include <signal.h>
-    #include <cmath>
     #include <limits.h>
     #include <math.h>
+    #include <signal.h>
 #endif
 
 struct Xorshift64_state { uint64_t a = 32; };
